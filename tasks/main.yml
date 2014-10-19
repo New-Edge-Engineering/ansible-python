@@ -1,0 +1,11 @@
+---
+- name: ensure python development are at the latest version
+  apt: pkg={{ item }} state=latest
+  with_items:
+    - build-essential
+    - python
+    - python-dev
+    - python-virtualenv
+    - python-sphinx
+    - pylint
+    - virtualenvwrapper
