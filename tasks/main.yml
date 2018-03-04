@@ -1,11 +1,6 @@
 ---
-- name: ensure python development are at the latest version
-  apt: pkg={{ item }} state=latest
-  with_items:
-    - build-essential
-    - python
-    - python-dev
-    - python-virtualenv
-    - python-sphinx
-    - pylint
-    - virtualenvwrapper
+- include_tasks: install_via_apt.yml
+  when: ansible_pkg_mgr == "apt"
+
+- include_tasks: install_via_yum.yml
+  when: ansible_pkg_mgr == "yum"
